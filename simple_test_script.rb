@@ -15,16 +15,9 @@ sconf = Applitools::Selenium::Configuration.new.tap do |conf|
   # conf.proxy = Applitools::Connectivity::Proxy.new('http://your.proxy.com')
   conf.viewport_size = Applitools::RectangleSize.new(800, 600)
   conf.add_browser(800, 600, BrowserTypes::CHROME)
-      .add_browser(1600, 1200, BrowserTypes::CHROME)
       .add_browser(1600, 1200, BrowserTypes::FIREFOX)
-      .add_browser(1600, 1200, BrowserTypes::IE10)
-      .add_browser(1600, 1200, BrowserTypes::EDGE)
-      .add_browser(1600, 1200, BrowserTypes::IE11)
-      .add_browser(1280, 1024, BrowserTypes::CHROME)
-      .add_device_emulation(Applitools::Selenium::ChromeEmulationInfo.galaxy_s5(Orientations::PORTRAIT))
-      .add_device_emulation(Applitools::Selenium::ChromeEmulationInfo.i_phone_6_7_8_plus(Orientations::PORTRAIT))
-      .add_device_emulation(Applitools::Selenium::ChromeEmulationInfo.new(Devices::MicrosoftLumia550, Orientations::PORTRAIT))
-      .add_device_emulation(Applitools::Selenium::ChromeEmulationInfo.new(Devices::MicrosoftLumia950, Orientations::PORTRAIT))
+      .add_device_emulation(Devices::IPhone678)
+      .add_device_emulation(Devices::MicrosoftLumia950, Orientations::LANDSCAPE)
 end
 
 eyes.config = sconf
