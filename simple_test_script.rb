@@ -1,7 +1,7 @@
 require 'eyes_selenium'
 
 visual_grid_runner = Applitools::Selenium::VisualGridRunner.new(10)
-eyes = Applitools::Selenium::Eyes.new(visual_grid_runner: visual_grid_runner)
+eyes = Applitools::Selenium::Eyes.new(runner: visual_grid_runner)
 
 web_driver = Selenium::WebDriver.for :chrome
 Applitools::EyesLogger.log_handler = Logger.new(STDOUT).tap do |l|
@@ -20,7 +20,7 @@ sconf = Applitools::Selenium::Configuration.new.tap do |conf|
       .add_device_emulation(Devices::MicrosoftLumia950, Orientations::LANDSCAPE)
 end
 
-eyes.config = sconf
+eyes.set_configuration(sconf)
 
 begin
   # Call Open on eyes to initialize a test session
@@ -41,16 +41,16 @@ begin
   # Check the app page
   eyes.check('App Page', Applitools::Selenium::Target.window.fully)
 
-  eyes.close(false)
-  results = visual_grid_runner.get_all_test_results
-  puts results
+  eyes.close_async
 rescue => e
   puts e.message
+  # If the test was aborted before eyes.close / eyes.close_async was called, ends the test as aborted.
+  eyes.abort
 ensure
   # Close the browser
   driver.quit
-  # If the test was aborted before eyes.Close was called, ends the test as aborted.
-  eyes.abort_if_not_closed
+  results = visual_grid_runner.get_all_test_results
+  puts results
 end
 
 
