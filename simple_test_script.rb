@@ -36,7 +36,7 @@ begin
   eyes.check('Login page', Applitools::Selenium::Target.window.fully)
 
   # Click the 'Log In' button
-  driver.find_element(:id, 'log-inzz').click
+  driver.find_element(:id, 'log-in').click
 
   # Check the app page
   eyes.check('App Page', Applitools::Selenium::Target.window.fully)
