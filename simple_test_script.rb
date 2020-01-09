@@ -36,7 +36,7 @@ begin
   eyes.check('Login page', Applitools::Selenium::Target.window.fully)
 
   # Click the 'Log In' button
-  driver.find_element(:id, 'log-in').click
+  driver.find_element(:id, 'log-inzz').click
 
   # Check the app page
   eyes.check('App Page', Applitools::Selenium::Target.window.fully)
@@ -45,7 +45,7 @@ begin
 rescue => e
   puts e.message
   # If the test was aborted before eyes.close / eyes.close_async was called, ends the test as aborted.
-  eyes.abort
+  eyes.abort_async
 ensure
   # Close the browser
   driver.quit
