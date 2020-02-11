@@ -4,23 +4,21 @@ visual_grid_runner = Applitools::Selenium::VisualGridRunner.new(10)
 eyes = Applitools::Selenium::Eyes.new(runner: visual_grid_runner)
 
 web_driver = Selenium::WebDriver.for :chrome
-Applitools::EyesLogger.log_handler = Logger.new(STDOUT).tap do |l|
-  l.level = Logger::INFO
-end
 
-sconf = Applitools::Selenium::Configuration.new.tap do |conf|
-  conf.api_key = ENV['APPLITOOLS_API_KEY']
+eyes.configure do |conf|
   conf.app_name = 'Demo App'
-  conf.test_name = 'Ruby visualgrid demo'
+  conf.test_name = 'Smoke Test'
   # conf.proxy = Applitools::Connectivity::Proxy.new('http://your.proxy.com')
   conf.viewport_size = Applitools::RectangleSize.new(800, 600)
   conf.add_browser(800, 600, BrowserTypes::CHROME)
       .add_browser(1600, 1200, BrowserTypes::FIREFOX)
+      .add_browser(800,600, BrowserTypes::SAFARI)
+      .add_browser(800,600, BrowserTypes::IE_10)
+      .add_browser(800,600, BrowserTypes::IE_11)
+      .add_browser(800,600, BrowserTypes::EDGE)
       .add_device_emulation(Devices::IPhone678)
       .add_device_emulation(Devices::MicrosoftLumia950, Orientations::LANDSCAPE)
 end
-
-eyes.set_configuration(sconf)
 
 begin
   # Call Open on eyes to initialize a test session
