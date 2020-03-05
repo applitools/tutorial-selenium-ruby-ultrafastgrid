@@ -10,7 +10,7 @@
 # Steps to run this example
 
 1. Git clone this repo
-    * `git clone git@github.com:applitools/tutorial-selenium-ruby-ultrafastgrid.git`
+    * `git clone https://github.com/applitools/tutorial-selenium-ruby-ultrafastgrid.git`
 2. Open the folder `tutorial-selenium-ruby-ultrafastgrid`
 3. Run command `gem install bundler && bundle install`. This will install necessary ruby gems and dependencies
 4. Obtain your API_KEY:
