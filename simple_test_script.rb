@@ -51,14 +51,12 @@ begin
   eyes.check('App Page', Applitools::Selenium::Target.window.fully)
 
   # Call Close on eyes to let the server know it should display the results
-  eyes.close_async
-rescue => e
-  puts e.message
-  # If the test was aborted before eyes.close / eyes.close_async was called, ends the test as aborted.
-  eyes.abort_async
+  eyes.close
 ensure
   # Close the browser
   driver.quit
+  # If the test was aborted before eyes.close / eyes.close_async was called, ends the test as aborted.
+  eyes.abort_async
 
   # we pass false to this method to suppress the exception that is thrown if we
   # find visual differences
