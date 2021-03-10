@@ -15,7 +15,7 @@ eyes.configure do |conf|
   conf.api_key = 'APPLITOOLS_API_KEY'
   # create a new batch info instance and set it to the configuration
   conf.batch = Applitools::BatchInfo.new("Ultrafast Batch")
-  conf.app_name = 'Demo App'
+  conf.app_name = 'Demo App - ruby'
   conf.test_name = 'Ultrafast grid demo'
   conf.viewport_size = Applitools::RectangleSize.new(800, 600)
   # Add browsers with different viewports
