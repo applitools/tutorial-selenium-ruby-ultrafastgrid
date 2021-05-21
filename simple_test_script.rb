@@ -1,7 +1,9 @@
 require 'eyes_selenium'
 
 # Create a new chrome web driver
-web_driver = Selenium::WebDriver.for :chrome
+options = Selenium::WebDriver::Chrome::Options.new
+options.add_argument('--headless') if ENV['CI'] == 'true'
+web_driver = Selenium::WebDriver.for :chrome, options: options
 
 # Create a runner with concurrency of 1
 visual_grid_runner = Applitools::Selenium::VisualGridRunner.new(1)
@@ -12,7 +14,7 @@ eyes = Applitools::Selenium::Eyes.new(runner: visual_grid_runner)
 # Initialize eyes Configuration
 eyes.configure do |conf|
   #  You can get your api key from the Applitools dashboard
-  conf.api_key = 'APPLITOOLS_API_KEY'
+  conf.api_key = ENV['APPLITOOLS_API_KEY']
   # create a new batch info instance and set it to the configuration
   conf.batch = Applitools::BatchInfo.new("Ultrafast Batch")
   conf.app_name = 'Demo App - ruby'
