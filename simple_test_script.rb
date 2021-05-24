@@ -21,11 +21,11 @@ eyes.configure do |conf|
   conf.test_name = 'Smoke Test - Ultrafast - Selenium Ruby'
   conf.viewport_size = Applitools::RectangleSize.new(800, 600)
   # Add browsers with different viewports
-  conf.add_browser(800, 600, BrowserTypes::CHROME)
-      .add_browser(700, 500, BrowserTypes::FIREFOX)
-      .add_browser(800,600, BrowserTypes::SAFARI)
-      .add_browser(1600,1200, BrowserTypes::IE_11)
-      .add_browser(1024,768, BrowserTypes::EDGE_CHROMIUM)
+  conf.add_browser(800, 600, BrowserType::CHROME)
+      .add_browser(700, 500, BrowserType::FIREFOX)
+      .add_browser(800,600, BrowserType::SAFARI)
+      .add_browser(1600,1200, BrowserType::IE_11)
+      .add_browser(1024,768, BrowserType::EDGE_CHROMIUM)
   #  Add mobile emulation devices in Portrait mode
   conf.add_device_emulation(Devices::IPhoneX, Orientations::PORTRAIT)
       .add_device_emulation(Devices::Pixel2, Orientations::PORTRAIT)
