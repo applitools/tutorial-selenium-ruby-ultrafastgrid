@@ -17,10 +17,15 @@ jobs:
         with:
           ruby-version: 2.6
 
-      - name: Install dependencies
-        run: bundle install
+      - name: Update gemfile and install dependencies
+        run: chmod +x ./updateGemfile.sh && ./updateGemfile.sh
 
       - name: Run test
         run: bundle exec ruby simple_test_script.rb
         env:
           APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+
+      - uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: 'master'
