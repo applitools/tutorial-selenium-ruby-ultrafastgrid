@@ -27,8 +27,8 @@ eyes.configure do |conf|
       .add_browser(1600,1200, BrowserType::IE_11)
       .add_browser(1024,768, BrowserType::EDGE_CHROMIUM)
   #  Add mobile emulation devices in Portrait mode
-  conf.add_device_emulation(Devices::IPhoneX, Orientations::PORTRAIT)
-      .add_device_emulation(Devices::Pixel2, Orientations::PORTRAIT)
+  conf.add_device_emulation(Devices::IPhoneX, Orientation::PORTRAIT)
+      .add_device_emulation(Devices::Pixel2, Orientation::PORTRAIT)
 end
 
  # ⭐️ Note to see visual bugs, run the test using the above URL for the 1st run.
