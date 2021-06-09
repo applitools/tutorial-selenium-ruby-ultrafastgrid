@@ -16,9 +16,9 @@ eyes.configure do |conf|
   #  You can get your api key from the Applitools dashboard
   conf.api_key = ENV['APPLITOOLS_API_KEY']
   # create a new batch info instance and set it to the configuration
-  conf.batch = Applitools::BatchInfo.new("Demo Batch - Ultrafast - Selenium Ruby")
-  conf.app_name = 'Demo App - Ultrafast - Selenium Ruby'
-  conf.test_name = 'Smoke Test - Ultrafast - Selenium Ruby'
+  conf.batch = Applitools::BatchInfo.new("Demo Batch - Selenium Ruby - Ultrafast")
+  conf.app_name = 'Demo App - Selenium Ruby - Ultrafast'
+  conf.test_name = 'Smoke Test - Selenium Ruby - Ultrafast'
   conf.viewport_size = Applitools::RectangleSize.new(800, 600)
   # Add browsers with different viewports
   conf.add_browser(800, 600, BrowserType::CHROME)
