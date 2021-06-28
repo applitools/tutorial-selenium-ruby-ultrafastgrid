@@ -1,3 +1,5 @@
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
 require 'eyes_selenium'
 
 # Create a new chrome web driver
