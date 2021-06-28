@@ -1,6 +1,6 @@
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-
 require 'eyes_selenium'
+
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 # Create a new chrome web driver
 options = Selenium::WebDriver::Chrome::Options.new
